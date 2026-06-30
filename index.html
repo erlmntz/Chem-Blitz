@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balance Blitz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gameContainer">
+    <canvas id="gameCanvas"></canvas>
+    <div id="ui-layer">
+      <div id="hud">
+        <div class="hud-item"><span class="hud-label">ROUND</span><span id="roundVal">1/10</span></div>
+        <div class="hud-item"><span class="hud-label">SCORE</span><span id="scoreVal">0</span></div>
+        <div class="hud-item"><span class="hud-label">STREAK</span><span id="streakVal">0</span></div>
+        <div class="hud-item timer-item"><span class="hud-label">TIME</span><span id="timerVal">15.0</span></div>
+      </div>
+
+      <div id="equationArea">
+        <div id="equation"></div>
+        <div id="hint"></div>
+      </div>
+
+      <div id="choicesArea"></div>
+
+      <div id="feedback"></div>
+
+      <div id="palette" class="hidden"></div>
+
+      <div id="startScreen" class="overlay">
+        <div class="panel">
+          <h1>⚗️ Balance Blitz</h1>
+          <p class="tagline">Pick the correct coefficients before the timer runs out!</p>
+          <ul class="rules">
+            <li>⏱️ <b>15 seconds</b> per equation</li>
+            <li>🔥 Streaks of <b>3+</b> earn bonus points</li>
+            <li>⚡ Leftover time adds to your score</li>
+            <li>🧪 <b>10 rounds</b> total</li>
+          </ul>
+          <button id="startBtn" class="big-btn">START</button>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="overlay hidden">
+        <div class="panel">
+          <h1>🏆 Final Score</h1>
+          <div id="finalScore">0</div>
+          <div id="finalStats"></div>
+          <button id="replayBtn" class="big-btn">PLAY AGAIN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="GameObject.js"></script>
+  <script src="Equations.js"></script>
+  <script src="Particle.js"></script>
+  <script src="Beaker.js"></script>
+  <script src="Game.js"></script>
+  <script>
+    const game = new Game(document.getElementById('gameCanvas'));
+    window.game = game;
+  </script>
+</body>
+</html>
